@@ -7,9 +7,7 @@ public class RefactoredCode {
     public String sComplexity = "Too Short";
 
     public NumberOfCharacters numberOfCharacters;
-
-    public int bonusAlphaUC, countAlphaUC;
-    public UppercaseLetters uppercaseLetters = new UppercaseLetters();
+    public UppercaseLetters uppercaseLetters;
 
     public int bonusAlphaLC, countAlphaLC;
     public LowercaseLetters lowercaseLetters = new LowercaseLetters();
@@ -64,8 +62,10 @@ public class RefactoredCode {
 
         int countLength = numberOfCharacters.getCountLength();
 
-        countAlphaUC = uppercaseLetters.lengthUppercaseLetters(arrPwd);
-        bonusAlphaUC = uppercaseLetters.bonusUppercaseLetters(countAlphaUC, numberOfCharacters.getCountLength());
+        uppercaseLetters = new UppercaseLetters(arrPwd,countLength);
+
+        int countAlphaUC = uppercaseLetters.getCountUppercaseLetters();
+
 
         countAlphaLC = lowercaseLetters.lengthLowercaseLetters(arrPwd);
         bonusAlphaLC = lowercaseLetters.bonusLowercaseLetters(countLength);
@@ -172,7 +172,7 @@ public class RefactoredCode {
 
                 + "\nAddictions"
                 + "\n[C: " + numberOfCharacters.getCountLength() + " | B: " + numberOfCharacters.getBonusLength() + "] Number of Characters"
-                + "\n[C: " + countAlphaUC + " | B: " + bonusAlphaUC + "] Uppercase Letters"
+                + "\n[C: " + uppercaseLetters.getCountUppercaseLetters() + " | B: " + uppercaseLetters.getBonusUCLetters() + "] Uppercase Letters"
                 + "\n[C: " + countAlphaLC + " | B: " + bonusAlphaLC + "] Lowercase Letters"
                 + "\n[C: " + countNumber + " | B: " + bonusNumber + "] Numbers"
                 + "\n[C: " + countSymbol + " | B: " + bonusSymbol + "] Symbols"
