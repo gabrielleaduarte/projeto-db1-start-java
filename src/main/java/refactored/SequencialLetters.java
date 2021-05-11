@@ -2,26 +2,48 @@ package refactored;
 
 public class SequencialLetters {
 
+    int bonusSequencialLetters;
     int countSequencialLetters;
 
-    public int lengthSequencialLetters(String candidateArray) {
+    public SequencialLetters(String candidateArray) {
+        countLengthSequencialLetters(candidateArray);
+        calculateBonusSequencialLetters();
+    }
+
+    public void countLengthSequencialLetters(String candidateArray) {
         String ALPHAS = "abcdefghijklmnopqrstuvwxyz";
-        int tamanho = ALPHAS.length() - 3;
-        for (int i = 0; i < tamanho; i++) {
+        int size = ALPHAS.length() - 3;
+        for (int i = 0; i < size; i++) {
             String sFwd = ALPHAS.substring(i, i + 3);
             String sRev = new StringBuilder(sFwd).reverse().toString();
             if (candidateArray.toLowerCase().contains(sFwd) || candidateArray.toLowerCase().contains(sRev)) {
                 countSequencialLetters++;
             }
         }
-        return countSequencialLetters;
     }
-    public int bonusSequencialLetters() {
+
+    public void calculateBonusSequencialLetters() {
         int multiplierConsecutiveUppercaseLetters = 3;
         if (countSequencialLetters > 0) {
-            return countSequencialLetters * multiplierConsecutiveUppercaseLetters;
+            bonusSequencialLetters = countSequencialLetters * multiplierConsecutiveUppercaseLetters;
         } else {
-            return 0;
+            bonusSequencialLetters = 0;
         }
+    }
+
+    public int getBonusSequencialLetters() {
+        return bonusSequencialLetters;
+    }
+
+    public int getCountSequencialLetters() {
+        return countSequencialLetters;
+    }
+
+    public void setBonusSequencialLetters(int bonusSequencialLetters) {
+        this.bonusSequencialLetters = bonusSequencialLetters;
+    }
+
+    public void setCountSequencialLetters(int countSequencialLetters) {
+        this.countSequencialLetters = countSequencialLetters;
     }
 }

@@ -2,9 +2,15 @@ package refactored;
 
 public class ConsecutiveLowercaseLetters {
 
+    int bonusConsecutiveLowercaseLetters;
     int countConsecutiveLowercaseLetters;
 
-    public int lengthConsecutiveLowercaseLetters(String[] candidateArray) {
+    public ConsecutiveLowercaseLetters(String[] candidateArray) {
+        countLengthConsecutiveLowercaseLetters(candidateArray);
+        calculateBonusConsecutiveLowercaseLetters();
+    }
+
+    public void countLengthConsecutiveLowercaseLetters(String[] candidateArray) {
         Integer nTmpAlphaLC = null;
         for (int i = 0; i < candidateArray.length; i++) {
             if (candidateArray[i].matches("[a-z]")) {
@@ -16,14 +22,30 @@ public class ConsecutiveLowercaseLetters {
                 nTmpAlphaLC = i;
             }
         }
-        return countConsecutiveLowercaseLetters;
     }
-    public int bonusConsecutiveLowercaseLetters() {
+
+    public void calculateBonusConsecutiveLowercaseLetters() {
         int multiplierConsecutiveUppercaseLetters = 2;
         if (countConsecutiveLowercaseLetters > 0) {
-            return countConsecutiveLowercaseLetters * multiplierConsecutiveUppercaseLetters;
+            bonusConsecutiveLowercaseLetters = countConsecutiveLowercaseLetters * multiplierConsecutiveUppercaseLetters;
         } else {
-            return 0;
+            bonusConsecutiveLowercaseLetters = 0;
         }
+    }
+
+    public int getBonusConsecutiveLowercaseLetters() {
+        return bonusConsecutiveLowercaseLetters;
+    }
+
+    public int getCountConsecutiveLowercaseLetters() {
+        return countConsecutiveLowercaseLetters;
+    }
+
+    public void setBonusConsecutiveLowercaseLetters(int bonusConsecutiveLowercaseLetters) {
+        this.bonusConsecutiveLowercaseLetters = bonusConsecutiveLowercaseLetters;
+    }
+
+    public void setCountConsecutiveLowercaseLetters(int countConsecutiveLowercaseLetters) {
+        this.countConsecutiveLowercaseLetters = countConsecutiveLowercaseLetters;
     }
 }

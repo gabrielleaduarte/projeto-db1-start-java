@@ -2,9 +2,15 @@ package refactored;
 
 public class SequencialNumbers {
 
+    int bonusSequencialNumbers;
     int countSequencialNumbers;
 
-    public int lengthSequencialNumbers(String candidateArray) {
+    public SequencialNumbers(String candidateArray) {
+        countLengthSequencialNumbers(candidateArray);
+        calculateBonusSequencialNumbers();
+    }
+
+    public void countLengthSequencialNumbers(String candidateArray) {
         for (int i = 0; i < 8; i++) {
             String DIGITS = "01234567890";
             String sFwd = DIGITS.substring(i, i + 3);
@@ -13,14 +19,30 @@ public class SequencialNumbers {
                 countSequencialNumbers++;
             }
         }
-        return countSequencialNumbers;
     }
-    public int bonusSequencialNumbers() {
+
+    public void calculateBonusSequencialNumbers() {
         int multiplierConsecutiveUppercaseLetters = 3;
         if (countSequencialNumbers > 0) {
-            return countSequencialNumbers * multiplierConsecutiveUppercaseLetters;
+            bonusSequencialNumbers = countSequencialNumbers * multiplierConsecutiveUppercaseLetters;
         } else {
-            return 0;
+            bonusSequencialNumbers = 0;
         }
+    }
+
+    public int getBonusSequencialNumbers() {
+        return bonusSequencialNumbers;
+    }
+
+    public int getCountSequencialNumbers() {
+        return countSequencialNumbers;
+    }
+
+    public void setBonusSequencialNumbers(int bonusSequencialNumbers) {
+        this.bonusSequencialNumbers = bonusSequencialNumbers;
+    }
+
+    public void setCountSequencialNumbers(int countSequencialNumbers) {
+        this.countSequencialNumbers = countSequencialNumbers;
     }
 }

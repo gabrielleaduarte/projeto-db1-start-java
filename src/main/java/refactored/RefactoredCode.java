@@ -9,45 +9,20 @@ public class RefactoredCode {
     public NumberOfCharacters numberOfCharacters;
     public UppercaseLetters uppercaseLetters;
     public LowercaseLetters lowercaseLetters;
+    public Numbers numbers;
+    public Symbols symbols;
+    public MiddleNumbersOrSymbols middleNumbersOrSymbols;
+    public Requirements requirements;
+    public LettersOnly lettersOnly;
+    public NumbersOnly numbersOnly;
+    public RepeatCharacters repeatCharacters;
+    public ConsecutiveUppercaseLetters consecutiveUppercaseLetters;
+    public ConsecutiveLowercaseLetters consecutiveLowercaseLetters;
+    public ConsecutiveNumber consecutiveNumber;
+    public SequencialLetters sequencialLetters;
+    public SequencialNumbers sequencialNumbers;
+    public SequencialSymbols sequencialSymbols;
 
-    public int bonusNumber, countNumber;
-    public Numbers numbers = new Numbers();
-
-    public int bonusSymbol, countSymbol;
-    public Symbols symbols = new Symbols();
-
-    public int bonusMidChar, countMidChar;
-    public MiddleNumbersOrSymbols middleNumbersOrSymbols = new MiddleNumbersOrSymbols();
-
-    public int bonusRequirements, countRequirements;
-    public Requirements requirements = new Requirements();
-
-    public int bonusAlphasOnly, countAlphasOnly;
-    public LettersOnly lettersOnly = new LettersOnly();
-
-    public int bonusNumbersOnly, countNumbersOnly;
-    public NumbersOnly numbersOnly = new NumbersOnly();
-
-    public int bonusRepChar, countRepChar;
-    public RepeatCharacters repeatCharacters = new RepeatCharacters();
-
-    public int bonusConsecutiveAlphaUC, countConsecutiveAlphaUC;
-    public ConsecutiveUppercaseLetters consecutiveUppercaseLetters = new ConsecutiveUppercaseLetters();
-
-    public int bonusConsecutiveAlphaLC, countConsecutiveAlphaLC;
-    public ConsecutiveLowercaseLetters consecutiveLowercaseLetters = new ConsecutiveLowercaseLetters();
-
-    public int bonusConsecutiveNumber, countConsecutiveNumber;
-    public ConsecutiveNumber consecutiveNumber = new ConsecutiveNumber();
-
-    public int bonusSeqNumber, countSeqNumber;
-    public SequencialLetters sequencialLetters = new SequencialLetters();
-
-    public int bonusSeqSymbol, countSeqSymbol;
-    public SequencialNumbers sequencialNumbers = new SequencialNumbers();
-
-    public int bonusSeqAlpha, countSeqAlpha;
-    public SequencialSymbols sequencialSymbols = new SequencialSymbols();
 
     public String[] levelsOfBonusItems = new String[2];
     public String[] levelsOfSuggestedItems = new String[9];
@@ -65,48 +40,44 @@ public class RefactoredCode {
         lowercaseLetters = new LowercaseLetters(arrPwd, countLength);
         int countAlphaLC = lowercaseLetters.getCountLowercaseLetters();
 
+        numbers = new Numbers(arrPwd, countLength);
+        int countNumber = numbers.getCountNumbers();
 
-        countNumber = numbers.lengthNumbers(arrPwd);
-        bonusNumber = numbers.bonusNumbers(countLength);
+        symbols = new Symbols(arrPwd);
+        int countSymbol = symbols.getCountSymbols();
 
-        countSymbol = symbols.lengthSymbols(arrPwd);
-        bonusSymbol = symbols.bonusSymbols();
+        middleNumbersOrSymbols = new MiddleNumbersOrSymbols(arrPwd);
+        int countMidChar = symbols.getCountSymbols();
 
-        countMidChar = middleNumbersOrSymbols.lengthMiddleNumbersOrSymbols(arrPwd);
-        bonusMidChar = middleNumbersOrSymbols.bonusMiddleNumbersOrSymbols();
+        requirements = new Requirements(countLength, countAlphaUC, countAlphaLC, countNumber, countSymbol, candidate);
+        int countRequirements = requirements.getCountRequirements();
 
-        countRequirements = requirements.lengthRequirements(countLength, countAlphaUC, countAlphaLC, countNumber, countSymbol);
-        bonusRequirements = requirements.bonusRequirements(candidate);
+        lettersOnly = new LettersOnly(countLength, countAlphaLC, countAlphaUC, countSymbol, countNumber);
+        int countAlphasOnly = lettersOnly.getCountLetterOnly();
 
-        countRepChar = repeatCharacters.lengthRepeatCharacters(arrPwd);
-        bonusRepChar = repeatCharacters.bonusRepeatCharacter();
+        numbersOnly = new NumbersOnly(countLength, countAlphaLC, countAlphaUC, countSymbol, countNumber);
+        int countNumbersOnly = numbersOnly.getCountNumbersOnly();
 
-        countConsecutiveAlphaUC = consecutiveUppercaseLetters.lengthConsecutiveUppercaseLetters(arrPwd);
-        bonusConsecutiveAlphaUC = consecutiveUppercaseLetters.bonusConsecutiveUppercaseLetters();
+        repeatCharacters = new RepeatCharacters(arrPwd);
+        int countRepChar = repeatCharacters.getCountRepeatCharacters();
 
-        countConsecutiveAlphaLC = consecutiveLowercaseLetters.lengthConsecutiveLowercaseLetters(arrPwd);
-        bonusConsecutiveAlphaLC = consecutiveLowercaseLetters.bonusConsecutiveLowercaseLetters();
+        consecutiveUppercaseLetters = new ConsecutiveUppercaseLetters(arrPwd);
+        int countConsecutiveAlphaUC = consecutiveUppercaseLetters.getCountConsecutiveUppercaseLetters();
 
-        countConsecutiveNumber = consecutiveNumber.lengthConsecutiveNumber(arrPwd);
-        bonusConsecutiveNumber = consecutiveNumber.bonusConsecutiveLowercaseLetters();
+        consecutiveLowercaseLetters = new ConsecutiveLowercaseLetters(arrPwd);
+        int countConsecutiveAlphaLC = consecutiveLowercaseLetters.getCountConsecutiveLowercaseLetters();
 
-        countSeqAlpha = sequencialLetters.lengthSequencialLetters(candidate);
-        bonusSeqAlpha = sequencialLetters.bonusSequencialLetters();
+        consecutiveNumber = new ConsecutiveNumber(arrPwd);
+        int countConsecutiveNumber = consecutiveNumber.getCountConsecutiveNumber();
 
-        countSeqNumber = sequencialNumbers.lengthSequencialNumbers(candidate);
-        bonusSeqNumber = sequencialNumbers.bonusSequencialNumbers();
+        sequencialLetters = new SequencialLetters(candidate);
+        int countSeqAlpha = sequencialLetters.getCountSequencialLetters();
 
-        countSeqSymbol = sequencialSymbols.lengthSequencialNumbers(candidate);
-        bonusSeqSymbol = sequencialSymbols.bonusSequencialNumbers();
+        sequencialNumbers = new SequencialNumbers(candidate);
+        int countSeqNumber = sequencialNumbers.getCountSequencialNumbers();
 
-        if ((countAlphaLC > 0 || countAlphaUC > 0) && countSymbol == 0 && countNumber == 0) {  // Only Letters
-            countAlphasOnly = lettersOnly.countLengthLettersOnly(countLength);
-            bonusAlphasOnly = lettersOnly.calculateBonusLetterOnly(countLength);
-        }
-        if (countAlphaLC == 0 && countAlphaUC == 0 && countSymbol == 0 && countNumber > 0) {  // Only Numbers
-            countNumbersOnly = numbersOnly.lengthNumbersOnly(countLength);
-            bonusNumbersOnly = numbersOnly.bonusNumbersOnly(countLength);
-        }
+        sequencialSymbols = new SequencialSymbols(candidate);
+        int countSeqSymbol = sequencialSymbols.getCountSequencialSymbols();
 
 
         /* Determine if mandatory requirements have been met and set image indicators accordingly */
@@ -170,20 +141,20 @@ public class RefactoredCode {
                 + "\n[C: " + numberOfCharacters.getCountLength() + " | B: " + numberOfCharacters.getBonusLength() + "] Number of Characters"
                 + "\n[C: " + uppercaseLetters.getCountUppercaseLetters() + " | B: " + uppercaseLetters.getBonusUCLetters() + "] Uppercase Letters"
                 + "\n[C: " + lowercaseLetters.getCountLowercaseLetters() + " | B: " + lowercaseLetters.getBonusLowercaseLetters() + "] Lowercase Letters"
-                + "\n[C: " + countNumber + " | B: " + bonusNumber + "] Numbers"
-                + "\n[C: " + countSymbol + " | B: " + bonusSymbol + "] Symbols"
-                + "\n[C: " + countMidChar + " | B: " + bonusMidChar + "] Middle Numbers or Symbols"
-                + "\n[C: " + countRequirements + " | B: " + bonusRequirements + "] Requirements"
+                + "\n[C: " + numbers.getCountNumbers() + " | B: " + numbers.getBonusNumbers() + "] Numbers"
+                + "\n[C: " + symbols.getCountSymbols() + " | B: " + symbols.getBonusSymbols() + "] Symbols"
+                + "\n[C: " + middleNumbersOrSymbols.getCountMiddleNumbersOrSymbols() + " | B: " + middleNumbersOrSymbols.getBonusMiddleNumberOrSymbols() + "] Middle Numbers or Symbols"
+                + "\n[C: " + requirements.getCountRequirements() + " | B: " + requirements.getBonusRequirements() + "] Requirements"
 
                 + "\nDeductions"
-                + "\n[C: " + countAlphasOnly + " | B: " + bonusAlphasOnly + "] Letters Only"
-                + "\n[C: " + countNumbersOnly + " | B: " + bonusNumbersOnly + "] Numbers Only"
-                + "\n[C: " + countRepChar + " | B: " + bonusRepChar + "] Repeat Characters (Case Insensitive)"
-                + "\n[C: " + countConsecutiveAlphaUC + " | B: " + bonusConsecutiveAlphaUC + "] Consecutive Uppercase Letters"
-                + "\n[C: " + countConsecutiveAlphaLC + " | B: " + bonusConsecutiveAlphaLC + "] Consecutive Lowercase Letters"
-                + "\n[C: " + countConsecutiveNumber + " | B: " + bonusConsecutiveNumber + "] Consecutive Numbers"
-                + "\n[C: " + countSeqAlpha + " | B: " + bonusSeqAlpha + "] Sequential Letters"
-                + "\n[C: " + countSeqNumber + " | B: " + bonusSeqNumber + "] Sequential Numbers"
-                + "\n[C: " + countSeqSymbol + " | B: " + bonusSeqSymbol + "] Sequential Symbols";
+                + "\n[C: " + lettersOnly.getCountLetterOnly() + " | B: " + lettersOnly.getBonusLetterOnly() + "] Letters Only"
+                + "\n[C: " + numbersOnly.getCountNumbersOnly() + " | B: " + numbersOnly.getBonusNumbersOnly() + "] Numbers Only"
+                + "\n[C: " + repeatCharacters.getCountRepeatCharacters() + " | B: " + repeatCharacters.getBonusRepeatCharacters() + "] Repeat Characters (Case Insensitive)"
+                + "\n[C: " + consecutiveUppercaseLetters.getCountConsecutiveUppercaseLetters() + " | B: " + consecutiveUppercaseLetters.getBonusConsecutiveUppercaseLetters() + "] Consecutive Uppercase Letters"
+                + "\n[C: " + consecutiveLowercaseLetters.getCountConsecutiveLowercaseLetters() + " | B: " + consecutiveLowercaseLetters.getBonusConsecutiveLowercaseLetters() + "] Consecutive Lowercase Letters"
+                + "\n[C: " + consecutiveNumber.getCountConsecutiveNumber() + " | B: " + consecutiveNumber.getBonusConsecutiveNumber() + "] Consecutive Numbers"
+                + "\n[C: " + sequencialLetters.getCountSequencialLetters() + " | B: " + sequencialLetters.getBonusSequencialLetters() + "] Sequential Letters"
+                + "\n[C: " + sequencialNumbers.getCountSequencialNumbers() + " | B: " + sequencialNumbers.getBonusSequencialNumbers() + "] Sequential Numbers"
+                + "\n[C: " + sequencialSymbols.getCountSequencialSymbols() + " | B: " + sequencialSymbols.getBonusSequencialSymbols() + "] Sequential Symbols";
     }
 }

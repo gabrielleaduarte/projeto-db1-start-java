@@ -2,22 +2,43 @@ package refactored;
 
 public class Symbols {
 
+    int bonusSymbols;
     int countSymbols;
 
-    public int lengthSymbols(String[] candidateArray) {
+    public Symbols(String[] candidateAray) {
+        countLengthSymbols(candidateAray);
+        calculateBonusSymbols();
+    }
+
+    public void countLengthSymbols(String[] candidateArray) {
         for (String s : candidateArray) {
             if (s.matches("[^a-zA-Z0-9_]")) {
                 countSymbols++;
             }
         }
-        return countSymbols;
     }
-    public int bonusSymbols() {
+    public void calculateBonusSymbols() {
         int multiplierNumbers = 6;
         if (countSymbols > 0) {
-            return countSymbols * multiplierNumbers;
+            bonusSymbols = countSymbols * multiplierNumbers;
         } else {
-            return 0;
+            bonusSymbols = 0;
         }
+    }
+
+    public int getBonusSymbols() {
+        return bonusSymbols;
+    }
+
+    public int getCountSymbols() {
+        return countSymbols;
+    }
+
+    public void setBonusSymbols(int bonusSymbols) {
+        this.bonusSymbols = bonusSymbols;
+    }
+
+    public void setCountSymbols(int countSymbols) {
+        this.countSymbols = countSymbols;
     }
 }

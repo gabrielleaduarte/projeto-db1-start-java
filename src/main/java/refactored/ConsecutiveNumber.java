@@ -2,9 +2,15 @@ package refactored;
 
 public class ConsecutiveNumber {
 
+    int bonusConsecutiveNumber;
     int countConsecutiveNumber;
 
-    public int lengthConsecutiveNumber(String[] candidateArray) {
+    public ConsecutiveNumber(String[] candidateArray) {
+        countLengthConsecutiveNumber(candidateArray);
+        calculateBonusConsecutiveLowercaseLetters();
+    }
+
+    public void countLengthConsecutiveNumber(String[] candidateArray) {
         Integer nTmpNumber = null;
         for (int i = 0; i < candidateArray.length; i++) {
             if (candidateArray[i].matches("[0-9]")) {
@@ -16,14 +22,30 @@ public class ConsecutiveNumber {
                 nTmpNumber = i;
             }
         }
-        return countConsecutiveNumber;
     }
-    public int bonusConsecutiveLowercaseLetters() {
+
+    public void calculateBonusConsecutiveLowercaseLetters() {
         int multiplierConsecutiveUppercaseLetters = 2;
         if (countConsecutiveNumber > 0) {
-            return countConsecutiveNumber * multiplierConsecutiveUppercaseLetters;
+            bonusConsecutiveNumber = countConsecutiveNumber * multiplierConsecutiveUppercaseLetters;
         } else {
-            return 0;
+            bonusConsecutiveNumber = 0;
         }
+    }
+
+    public int getBonusConsecutiveNumber() {
+        return bonusConsecutiveNumber;
+    }
+
+    public int getCountConsecutiveNumber() {
+        return countConsecutiveNumber;
+    }
+
+    public void setBonusConsecutiveNumber(int bonusConsecutiveNumber) {
+        this.bonusConsecutiveNumber = bonusConsecutiveNumber;
+    }
+
+    public void setCountConsecutiveNumber(int countConsecutiveNumber) {
+        this.countConsecutiveNumber = countConsecutiveNumber;
     }
 }

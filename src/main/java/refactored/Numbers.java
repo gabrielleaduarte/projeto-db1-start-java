@@ -2,22 +2,44 @@ package refactored;
 
 public class Numbers {
 
+    int bonusNumbers;
     int countNumbers;
 
-    public int lengthNumbers(String[] candidateArray) {
+    public Numbers(String[] candidateArray, int countLength) {
+        countLengthNumbers(candidateArray);
+        calculateBonusNumbers(countLength);
+    }
+
+    public void countLengthNumbers(String[] candidateArray) {
         for (String s : candidateArray) {
             if (s.matches("[0-9]")) {
                 countNumbers++;
             }
         }
-        return countNumbers;
     }
-    public int bonusNumbers(int countLength) {
+
+    public void calculateBonusNumbers(int countLength) {
         int multiplierNumbers = 4;
         if (countNumbers > 0 && countNumbers < countLength) {
-            return countNumbers * multiplierNumbers;
+            bonusNumbers =  countNumbers * multiplierNumbers;
         } else {
-            return 0;
+            bonusNumbers = 0;
         }
+    }
+
+    public int getBonusNumbers() {
+        return bonusNumbers;
+    }
+
+    public int getCountNumbers() {
+        return countNumbers;
+    }
+
+    public void setBonusNumbers(int bonusNumbers) {
+        this.bonusNumbers = bonusNumbers;
+    }
+
+    public void setCountNumbers(int countNumbers) {
+        this.countNumbers = countNumbers;
     }
 }

@@ -2,9 +2,15 @@ package refactored;
 
 public class ConsecutiveUppercaseLetters {
 
+    int bonusConsecutiveUppercaseLetters;
     int countConsecutiveUppercaseLetters;
 
-    public int lengthConsecutiveUppercaseLetters(String[] candidateArray) {
+    public ConsecutiveUppercaseLetters(String[] candidateArray) {
+        countLengthConsecutiveUppercaseLetters(candidateArray);
+        calculateBonusConsecutiveUppercaseLetters();
+    }
+
+    public void countLengthConsecutiveUppercaseLetters(String[] candidateArray) {
         Integer nTmpAlphaUC = null;
         for (int i = 0; i < candidateArray.length; i++) {
             if (candidateArray[i].matches("[A-Z]")) {
@@ -16,14 +22,29 @@ public class ConsecutiveUppercaseLetters {
                 nTmpAlphaUC = i;
             }
         }
-        return  countConsecutiveUppercaseLetters;
     }
-    public int bonusConsecutiveUppercaseLetters() {
+    public void calculateBonusConsecutiveUppercaseLetters() {
         int multiplierConsecutiveUppercaseLetters = 2;
         if (countConsecutiveUppercaseLetters > 0) {
-            return countConsecutiveUppercaseLetters * multiplierConsecutiveUppercaseLetters;
+            bonusConsecutiveUppercaseLetters = countConsecutiveUppercaseLetters * multiplierConsecutiveUppercaseLetters;
         } else {
-            return 0;
+            bonusConsecutiveUppercaseLetters = 0;
         }
+    }
+
+    public int getBonusConsecutiveUppercaseLetters() {
+        return bonusConsecutiveUppercaseLetters;
+    }
+
+    public int getCountConsecutiveUppercaseLetters() {
+        return countConsecutiveUppercaseLetters;
+    }
+
+    public void setBonusConsecutiveUppercaseLetters(int bonusConsecutiveUppercaseLetters) {
+        this.bonusConsecutiveUppercaseLetters = bonusConsecutiveUppercaseLetters;
+    }
+
+    public void setCountConsecutiveUppercaseLetters(int countConsecutiveUppercaseLetters) {
+        this.countConsecutiveUppercaseLetters = countConsecutiveUppercaseLetters;
     }
 }

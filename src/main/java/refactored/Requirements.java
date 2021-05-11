@@ -2,11 +2,17 @@ package refactored;
 
 public class Requirements {
 
+    int bonusRequirements;
     int countRequirements;
     public String[] levelsOfMandatoryItems = new String[5];
     int MINIMUM_LENGTH = 8;
 
-    public int lengthRequirements(int countLength, int countAlphaUC, int countAlphaLC, int countNumber, int countSymbol) {
+    public Requirements(int countLength, int countAlphaUC, int countAlphaLC, int countNumber, int countSymbol, String candidate) {
+        countLengthRequirements(countLength, countAlphaUC, countAlphaLC, countNumber, countSymbol);
+        calculateBonusRequirements(candidate);
+    }
+
+    public void countLengthRequirements(int countLength, int countAlphaUC, int countAlphaLC, int countNumber, int countSymbol) {
         int[] arrChars = {countLength, countAlphaUC, countAlphaLC, countNumber, countSymbol};
         String[] arrCharsIds = {"countLength", "countAlphaUC", "countAlphaLC", "countNumber", "countSymbol"};
         var arrCharsLen = arrChars.length;
@@ -22,11 +28,26 @@ public class Requirements {
                 levelsOfMandatoryItems[i] = "failure";
             }
         }
-        return countRequirements;
     }
-    public int bonusRequirements(String candidate){
+    public void calculateBonusRequirements(String candidate){
         int multiplierRequirements = 2;
         int nMinReqChars = candidate.length() >= MINIMUM_LENGTH ? 3 : 4;
-        return countRequirements * multiplierRequirements;
+        bonusRequirements = countRequirements * multiplierRequirements;
+    }
+
+    public int getBonusRequirements() {
+        return bonusRequirements;
+    }
+
+    public int getCountRequirements() {
+        return countRequirements;
+    }
+
+    public void setBonusRequirements(int bonusRequirements) {
+        this.bonusRequirements = bonusRequirements;
+    }
+
+    public void setCountRequirements(int countRequirements) {
+        this.countRequirements = countRequirements;
     }
 }

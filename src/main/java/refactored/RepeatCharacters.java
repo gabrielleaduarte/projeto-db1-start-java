@@ -2,10 +2,16 @@ package refactored;
 
 public class RepeatCharacters {
 
+    int bonusRepeatCharacters;
     int countRepeatCharacters;
     double incrementDeductionOfRepeatedChars = 0;
 
-    public int lengthRepeatCharacters(String[] candidateArray) {
+    public RepeatCharacters(String[] candidateArray) {
+        countLengthRepeatCharacters(candidateArray);
+        calculateBonusRepeatCharacter();
+    }
+
+    public void countLengthRepeatCharacters(String[] candidateArray) {
         var bCharExists = false;
         for (int i = 0; i < candidateArray.length; i++) {
             for (int j = 0; j < candidateArray.length; j++) {
@@ -22,13 +28,29 @@ public class RepeatCharacters {
                         Math.ceil(incrementDeductionOfRepeatedChars);
             }
         }
+    }
+
+    public void calculateBonusRepeatCharacter() {
+        if (countRepeatCharacters > 0){
+            bonusRepeatCharacters = (int) incrementDeductionOfRepeatedChars;
+        } else {
+            bonusRepeatCharacters = 0;
+        }
+    }
+
+    public int getBonusRepeatCharacters() {
+        return bonusRepeatCharacters;
+    }
+
+    public int getCountRepeatCharacters() {
         return countRepeatCharacters;
     }
-    public int bonusRepeatCharacter() {
-        if (countRepeatCharacters > 0){
-            return (int) incrementDeductionOfRepeatedChars;
-        } else {
-            return 0;
-        }
+
+    public void setBonusRepeatCharacters(int bonusRepeatCharacters) {
+        this.bonusRepeatCharacters = bonusRepeatCharacters;
+    }
+
+    public void setCountRepeatCharacters(int countRepeatCharacters) {
+        this.countRepeatCharacters = countRepeatCharacters;
     }
 }
