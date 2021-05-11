@@ -8,9 +8,7 @@ public class RefactoredCode {
 
     public NumberOfCharacters numberOfCharacters;
     public UppercaseLetters uppercaseLetters;
-
-    public int bonusAlphaLC, countAlphaLC;
-    public LowercaseLetters lowercaseLetters = new LowercaseLetters();
+    public LowercaseLetters lowercaseLetters;
 
     public int bonusNumber, countNumber;
     public Numbers numbers = new Numbers();
@@ -59,16 +57,14 @@ public class RefactoredCode {
         String[] arrPwd = candidate.replaceAll("\\s+", "").split("\\s*");
 
         numberOfCharacters = new NumberOfCharacters(candidate);
-
         int countLength = numberOfCharacters.getCountLength();
 
         uppercaseLetters = new UppercaseLetters(arrPwd,countLength);
-
         int countAlphaUC = uppercaseLetters.getCountUppercaseLetters();
 
+        lowercaseLetters = new LowercaseLetters(arrPwd, countLength);
+        int countAlphaLC = lowercaseLetters.getCountLowercaseLetters();
 
-        countAlphaLC = lowercaseLetters.lengthLowercaseLetters(arrPwd);
-        bonusAlphaLC = lowercaseLetters.bonusLowercaseLetters(countLength);
 
         countNumber = numbers.lengthNumbers(arrPwd);
         bonusNumber = numbers.bonusNumbers(countLength);
@@ -173,7 +169,7 @@ public class RefactoredCode {
                 + "\nAddictions"
                 + "\n[C: " + numberOfCharacters.getCountLength() + " | B: " + numberOfCharacters.getBonusLength() + "] Number of Characters"
                 + "\n[C: " + uppercaseLetters.getCountUppercaseLetters() + " | B: " + uppercaseLetters.getBonusUCLetters() + "] Uppercase Letters"
-                + "\n[C: " + countAlphaLC + " | B: " + bonusAlphaLC + "] Lowercase Letters"
+                + "\n[C: " + lowercaseLetters.getCountLowercaseLetters() + " | B: " + lowercaseLetters.getBonusLowercaseLetters() + "] Lowercase Letters"
                 + "\n[C: " + countNumber + " | B: " + bonusNumber + "] Numbers"
                 + "\n[C: " + countSymbol + " | B: " + bonusSymbol + "] Symbols"
                 + "\n[C: " + countMidChar + " | B: " + bonusMidChar + "] Middle Numbers or Symbols"
