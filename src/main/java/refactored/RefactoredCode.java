@@ -6,8 +6,7 @@ public class RefactoredCode {
     public String password;
     public String sComplexity = "Too Short";
 
-    public int bonusLength, countLength;
-    public NumberOfCharacters numberOfCharacters = new NumberOfCharacters();
+    public NumberOfCharacters numberOfCharacters;
 
     public int bonusAlphaUC, countAlphaUC;
     public UppercaseLetters uppercaseLetters = new UppercaseLetters();
@@ -59,14 +58,14 @@ public class RefactoredCode {
 
     public void checkPassword(String candidate) {
         password = candidate;
-
         String[] arrPwd = candidate.replaceAll("\\s+", "").split("\\s*");
 
-        countLength = numberOfCharacters.lengthNumberOfCharacters(candidate);
-        bonusLength = numberOfCharacters.bonusNumberOfCharacters(candidate);
+        numberOfCharacters = new NumberOfCharacters(candidate);
+
+        int countLength = numberOfCharacters.getCountLength();
 
         countAlphaUC = uppercaseLetters.lengthUppercaseLetters(arrPwd);
-        bonusAlphaUC = uppercaseLetters.bonusUppercaseLetters(countAlphaUC, countLength);
+        bonusAlphaUC = uppercaseLetters.bonusUppercaseLetters(countAlphaUC, numberOfCharacters.getCountLength());
 
         countAlphaLC = lowercaseLetters.lengthLowercaseLetters(arrPwd);
         bonusAlphaLC = lowercaseLetters.bonusLowercaseLetters(countLength);
@@ -105,8 +104,8 @@ public class RefactoredCode {
         bonusSeqSymbol = sequencialSymbols.bonusSequencialNumbers();
 
         if ((countAlphaLC > 0 || countAlphaUC > 0) && countSymbol == 0 && countNumber == 0) {  // Only Letters
-            countAlphasOnly = lettersOnly.lengthLettersOnly(countLength);
-            bonusAlphasOnly = lettersOnly.bonusLetterOnly(countLength);
+            countAlphasOnly = lettersOnly.countLengthLettersOnly(countLength);
+            bonusAlphasOnly = lettersOnly.calculateBonusLetterOnly(countLength);
         }
         if (countAlphaLC == 0 && countAlphaUC == 0 && countSymbol == 0 && countNumber > 0) {  // Only Numbers
             countNumbersOnly = numbersOnly.lengthNumbersOnly(countLength);
@@ -172,7 +171,7 @@ public class RefactoredCode {
                 + "\nComplexity: " + sComplexity
 
                 + "\nAddictions"
-                + "\n[C: " + countLength + " | B: " + numberOfCharacters + "] Number of Characters"
+                + "\n[C: " + numberOfCharacters.getCountLength() + " | B: " + numberOfCharacters.getBonusLength() + "] Number of Characters"
                 + "\n[C: " + countAlphaUC + " | B: " + bonusAlphaUC + "] Uppercase Letters"
                 + "\n[C: " + countAlphaLC + " | B: " + bonusAlphaLC + "] Lowercase Letters"
                 + "\n[C: " + countNumber + " | B: " + bonusNumber + "] Numbers"

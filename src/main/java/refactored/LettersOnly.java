@@ -1,10 +1,10 @@
 package refactored;
 
 public class LettersOnly {
-    public int lengthLettersOnly(int countLength) {
+    public int countLengthLettersOnly(int countLength) {
         return countLength;
     }
-    public int bonusLetterOnly(int countLength) {
+    public int calculateBonusLetterOnly(int countLength) {
         return countLength;
     }
 }
