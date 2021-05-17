@@ -2,12 +2,12 @@ package refactored;
 
 public class LowercaseLetters {
 
-    int bonusLowercaseLetters;
-    int countLowercaseLetters;
+    private int bonusLowercaseLetters;
+    private int countLowercaseLetters;
 
     public LowercaseLetters(String[] candidateArray, int countLength) {
-        countLengthLowercaseLetters(candidateArray);
-        calculateBonusLowercaseLetters(countLength);
+        this.countLengthLowercaseLetters(candidateArray);
+        this.calculateBonusLowercaseLetters(countLength);
     }
 
     public void countLengthLowercaseLetters(String[] candidateArray) {

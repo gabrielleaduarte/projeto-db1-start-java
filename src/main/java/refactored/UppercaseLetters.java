@@ -2,12 +2,12 @@ package refactored;
 
 public class UppercaseLetters {
 
-    int bonusUCLetters;
-    int countUppercaseLetters;
+    private int bonusUCLetters;
+    private int countUppercaseLetters;
 
     public UppercaseLetters(String[] candidateArray, int countLength) {
-        countLengthUppercaseLetters(candidateArray);
-        calculateBonusUppercaseLetters(countLength);
+        this.countLengthUppercaseLetters(candidateArray);
+        this.calculateBonusUppercaseLetters(countLength);
     }
 
     public void countLengthUppercaseLetters(String[] candidateArray) {

@@ -2,12 +2,12 @@ package refactored;
 
 public class NumberOfCharacters {
 
-    int bonusLength;
-    int countLength;
+    private int bonusLength;
+    private int countLength;
 
     public NumberOfCharacters(String candidate) {
-        countLengthNumberOfCharacters(candidate);
-        calculateBonusNumberOfCharacters(candidate);
+        this.countLengthNumberOfCharacters(candidate);
+        this.calculateBonusNumberOfCharacters(candidate);
     }
 
     public void countLengthNumberOfCharacters(String candidate) {

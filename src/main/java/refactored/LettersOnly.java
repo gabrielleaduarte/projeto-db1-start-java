@@ -2,12 +2,12 @@ package refactored;
 
 public class LettersOnly {
 
-    int bonusLettersOnly;
-    int countLettersOnly;
+    private int bonusLettersOnly;
+    private int countLettersOnly;
 
     public LettersOnly(int countLength, int countAlphaLC, int countAlphaUC, int countSymbol, int countNumber) {
-        countLengthLettersOnly(countLength, countAlphaLC, countAlphaUC, countSymbol, countNumber);
-        calculateBonusLettersOnly(countLength, countAlphaLC, countAlphaUC, countSymbol, countNumber);
+        this.countLengthLettersOnly(countLength, countAlphaLC, countAlphaUC, countSymbol, countNumber);
+        this.calculateBonusLettersOnly(countLength, countAlphaLC, countAlphaUC, countSymbol, countNumber);
     }
 
     public void countLengthLettersOnly(int countLength, int countAlphaLC, int countAlphaUC, int countSymbol, int countNumber) {

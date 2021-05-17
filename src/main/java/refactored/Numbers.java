@@ -2,12 +2,12 @@ package refactored;
 
 public class Numbers {
 
-    int bonusNumbers;
-    int countNumbers;
+    private int bonusNumbers;
+    private int countNumbers;
 
     public Numbers(String[] candidateArray, int countLength) {
-        countLengthNumbers(candidateArray);
-        calculateBonusNumbers(countLength);
+        this.countLengthNumbers(candidateArray);
+        this.calculateBonusNumbers(countLength);
     }
 
     public void countLengthNumbers(String[] candidateArray) {

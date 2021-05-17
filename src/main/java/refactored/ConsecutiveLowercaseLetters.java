@@ -2,12 +2,12 @@ package refactored;
 
 public class ConsecutiveLowercaseLetters {
 
-    int bonusConsecutiveLowercaseLetters;
-    int countConsecutiveLowercaseLetters;
+    private int bonusConsecutiveLowercaseLetters;
+    private int countConsecutiveLowercaseLetters;
 
     public ConsecutiveLowercaseLetters(String[] candidateArray) {
-        countLengthConsecutiveLowercaseLetters(candidateArray);
-        calculateBonusConsecutiveLowercaseLetters();
+        this.countLengthConsecutiveLowercaseLetters(candidateArray);
+        this.calculateBonusConsecutiveLowercaseLetters();
     }
 
     public void countLengthConsecutiveLowercaseLetters(String[] candidateArray) {

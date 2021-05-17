@@ -2,13 +2,13 @@ package refactored;
 
 public class RepeatCharacters {
 
-    int bonusRepeatCharacters;
-    int countRepeatCharacters;
-    double incrementDeductionOfRepeatedChars = 0;
+    private int bonusRepeatCharacters;
+    private int countRepeatCharacters;
+    private double incrementDeductionOfRepeatedChars = 0;
 
     public RepeatCharacters(String[] candidateArray) {
-        countLengthRepeatCharacters(candidateArray);
-        calculateBonusRepeatCharacter();
+        this.countLengthRepeatCharacters(candidateArray);
+        this.calculateBonusRepeatCharacter();
     }
 
     public void countLengthRepeatCharacters(String[] candidateArray) {

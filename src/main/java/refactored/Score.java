@@ -2,18 +2,18 @@ package refactored;
 
 public class Score {
 
-    int score;
-    String sComplexity = "Too Short";
+    private int score;
+    private String sComplexity = "Too Short";
 
     public Score(int numberOfCharacters, int uppercaseLetters, int lowercaseLetters, int numbers, int symbols,
                  int middleNumbersOrSymbols, int requirements, int lettersOnly, int numbersOnly, int repeatCharacters,
                  int consecutiveUppercaseLetters, int consecutiveLowercaseLetters, int consecutiveNumbers,
                  int sequentialLetters, int sequentialNumbers, int sequentialSymbols){
-        calculateScore(numberOfCharacters, uppercaseLetters, lowercaseLetters, numbers, symbols, middleNumbersOrSymbols,
+        this.calculateScore(numberOfCharacters, uppercaseLetters, lowercaseLetters, numbers, symbols, middleNumbersOrSymbols,
                        requirements, lettersOnly, numbersOnly, repeatCharacters, consecutiveUppercaseLetters,
                        consecutiveLowercaseLetters, consecutiveNumbers, sequentialLetters, sequentialNumbers, sequentialSymbols);
-        setLimits();
-        determineComplexity();
+        this.setLimits();
+        this.determineComplexity();
     }
 
     public void calculateScore(int numberOfCharacters, int uppercaseLetters, int lowercaseLetters, int numbers, int symbols,

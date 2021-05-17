@@ -2,17 +2,17 @@ package refactored;
 
 public class RequirementsEvaluation {
 
-    int nMinReqChars;
-    public String[] levelsOfBonusItems = new String[2];
-    public String[] levelsOfSuggestedItems = new String[9];
+    private int nMinReqChars;
+    private String[] levelsOfBonusItems = new String[2];
+    private String[] levelsOfSuggestedItems = new String[9];
 
     public RequirementsEvaluation(int countLength, int countAlphaUC, int countAlphaLC, int countNumber, int countSymbol,
                                   String candidate, int countMidChar, int countRequirements, int countAlphasOnly,
                                   int countNumbersOnly, int countRepChar, int countConsecutiveAlphaUC, int countConsecutiveAlphaLC,
                                   int countConsecutiveNumber, int countSeqAlpha, int countSeqNumber, int countSeqSymbol){
-        determineMandatoryRequirements(countLength, countAlphaUC, countAlphaLC, countNumber, countSymbol, candidate);
-        determineAdditionalBonuses(countMidChar, countRequirements);
-        determineSuggestedRequirements(countAlphasOnly, countNumbersOnly, countRepChar, countConsecutiveAlphaUC,
+        this.determineMandatoryRequirements(countLength, countAlphaUC, countAlphaLC, countNumber, countSymbol, candidate);
+        this.determineAdditionalBonuses(countMidChar, countRequirements);
+        this.determineSuggestedRequirements(countAlphasOnly, countNumbersOnly, countRepChar, countConsecutiveAlphaUC,
                 countConsecutiveAlphaLC, countConsecutiveNumber, countSeqAlpha, countSeqNumber, countSeqSymbol);
     }
 

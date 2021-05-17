@@ -18,9 +18,9 @@ public class RefactoredCode {
     public ConsecutiveUppercaseLetters consecutiveUppercaseLetters;
     public ConsecutiveLowercaseLetters consecutiveLowercaseLetters;
     public ConsecutiveNumber consecutiveNumber;
-    public SequencialLetters sequencialLetters;
-    public SequencialNumbers sequencialNumbers;
-    public SequencialSymbols sequencialSymbols;
+    public SequentialLetters sequentialLetters;
+    public SequentialNumbers sequentialNumbers;
+    public SequentialSymbols sequentialSymbols;
 
 
     public void checkPassword(String candidate) {
@@ -50,16 +50,16 @@ public class RefactoredCode {
         consecutiveUppercaseLetters = new ConsecutiveUppercaseLetters(arrPwd);
         consecutiveLowercaseLetters = new ConsecutiveLowercaseLetters(arrPwd);
         consecutiveNumber = new ConsecutiveNumber(arrPwd);
-        sequencialLetters = new SequencialLetters(candidate);
-        sequencialNumbers = new SequencialNumbers(candidate);
-        sequencialSymbols = new SequencialSymbols(candidate);
+        sequentialLetters = new SequentialLetters(candidate);
+        sequentialNumbers = new SequentialNumbers(candidate);
+        sequentialSymbols = new SequentialSymbols(candidate);
 
         score = new Score(numberOfCharacters.getBonusLength(), uppercaseLetters.getBonusUCLetters(), lowercaseLetters.getBonusLowercaseLetters(),
                           numbers.getBonusNumbers(), symbols.getBonusSymbols(), middleNumbersOrSymbols.getBonusMiddleNumberOrSymbols(),
                           requirements.getBonusRequirements(), lettersOnly.getBonusLetterOnly(), numbersOnly.getBonusNumbersOnly(),
                           repeatCharacters.getBonusRepeatCharacters(),consecutiveUppercaseLetters.getBonusConsecutiveUppercaseLetters(),
                           consecutiveLowercaseLetters.getBonusConsecutiveLowercaseLetters(), consecutiveNumber.getBonusConsecutiveNumber(),
-                          sequencialLetters.getBonusSequencialLetters(), sequencialNumbers.getBonusSequencialNumbers(), sequencialSymbols.getBonusSequencialSymbols());
+                          sequentialLetters.getBonusSequentialLetters(), sequentialNumbers.getBonusSequentialNumbers(), sequentialSymbols.getBonusSequentialSymbols());
     }
 
     @Override
@@ -84,8 +84,8 @@ public class RefactoredCode {
                 + "\n[C: " + consecutiveUppercaseLetters.getCountConsecutiveUppercaseLetters() + " | B: " + consecutiveUppercaseLetters.getBonusConsecutiveUppercaseLetters() + "] Consecutive Uppercase Letters"
                 + "\n[C: " + consecutiveLowercaseLetters.getCountConsecutiveLowercaseLetters() + " | B: " + consecutiveLowercaseLetters.getBonusConsecutiveLowercaseLetters() + "] Consecutive Lowercase Letters"
                 + "\n[C: " + consecutiveNumber.getCountConsecutiveNumber() + " | B: " + consecutiveNumber.getBonusConsecutiveNumber() + "] Consecutive Numbers"
-                + "\n[C: " + sequencialLetters.getCountSequencialLetters() + " | B: " + sequencialLetters.getBonusSequencialLetters() + "] Sequential Letters"
-                + "\n[C: " + sequencialNumbers.getCountSequencialNumbers() + " | B: " + sequencialNumbers.getBonusSequencialNumbers() + "] Sequential Numbers"
-                + "\n[C: " + sequencialSymbols.getCountSequencialSymbols() + " | B: " + sequencialSymbols.getBonusSequencialSymbols() + "] Sequential Symbols";
+                + "\n[C: " + sequentialLetters.getCountSequentialLetters() + " | B: " + sequentialLetters.getBonusSequentialLetters() + "] Sequential Letters"
+                + "\n[C: " + sequentialNumbers.getCountSequentialNumbers() + " | B: " + sequentialNumbers.getBonusSequentialNumbers() + "] Sequential Numbers"
+                + "\n[C: " + sequentialSymbols.getCountSequentialSymbols() + " | B: " + sequentialSymbols.getBonusSequentialSymbols() + "] Sequential Symbols";
     }
 }

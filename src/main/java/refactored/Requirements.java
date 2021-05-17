@@ -2,14 +2,14 @@ package refactored;
 
 public class Requirements {
 
-    int bonusRequirements;
-    int countRequirements;
-    public String[] levelsOfMandatoryItems = new String[5];
-    int MINIMUM_LENGTH = 8;
+    private int bonusRequirements;
+    private int countRequirements;
+    private final String[] levelsOfMandatoryItems = new String[5];
+    private final int MINIMUM_LENGTH = 8;
 
     public Requirements(int countLength, int countAlphaUC, int countAlphaLC, int countNumber, int countSymbol, String candidate) {
-        countLengthRequirements(countLength, countAlphaUC, countAlphaLC, countNumber, countSymbol);
-        calculateBonusRequirements(candidate);
+        this.countLengthRequirements(countLength, countAlphaUC, countAlphaLC, countNumber, countSymbol);
+        this.calculateBonusRequirements(candidate);
     }
 
     public void countLengthRequirements(int countLength, int countAlphaUC, int countAlphaLC, int countNumber, int countSymbol) {

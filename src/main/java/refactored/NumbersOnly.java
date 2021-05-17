@@ -2,12 +2,12 @@ package refactored;
 
 public class NumbersOnly {
 
-    int bonusNumbersOnly;
-    int countNumbersOnly;
+    private int bonusNumbersOnly;
+    private int countNumbersOnly;
 
     public NumbersOnly(int countLength, int countAlphaLC, int countAlphaUC, int countSymbol, int countNumber) {
-        countLengthNumbersOnly(countLength, countAlphaLC, countAlphaUC, countSymbol, countNumber);
-        calculateBonusNumbersOnly(countLength, countAlphaLC, countAlphaUC, countSymbol, countNumber);
+        this.countLengthNumbersOnly(countLength, countAlphaLC, countAlphaUC, countSymbol, countNumber);
+        this.calculateBonusNumbersOnly(countLength, countAlphaLC, countAlphaUC, countSymbol, countNumber);
     }
 
     public void countLengthNumbersOnly(int countLength, int countAlphaLC, int countAlphaUC, int countSymbol, int countNumber) {

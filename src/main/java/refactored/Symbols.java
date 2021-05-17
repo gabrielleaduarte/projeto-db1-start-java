@@ -2,12 +2,12 @@ package refactored;
 
 public class Symbols {
 
-    int bonusSymbols;
-    int countSymbols;
+    private int bonusSymbols;
+    private int countSymbols;
 
     public Symbols(String[] candidateAray) {
-        countLengthSymbols(candidateAray);
-        calculateBonusSymbols();
+        this.countLengthSymbols(candidateAray);
+        this.calculateBonusSymbols();
     }
 
     public void countLengthSymbols(String[] candidateArray) {

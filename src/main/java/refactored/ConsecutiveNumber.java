@@ -2,12 +2,12 @@ package refactored;
 
 public class ConsecutiveNumber {
 
-    int bonusConsecutiveNumber;
-    int countConsecutiveNumber;
+    private int bonusConsecutiveNumber;
+    private int countConsecutiveNumber;
 
     public ConsecutiveNumber(String[] candidateArray) {
-        countLengthConsecutiveNumber(candidateArray);
-        calculateBonusConsecutiveLowercaseLetters();
+        this.countLengthConsecutiveNumber(candidateArray);
+        this.calculateBonusConsecutiveLowercaseLetters();
     }
 
     public void countLengthConsecutiveNumber(String[] candidateArray) {

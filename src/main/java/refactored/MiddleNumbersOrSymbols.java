@@ -2,12 +2,12 @@ package refactored;
 
 public class MiddleNumbersOrSymbols {
 
-    int bonusMiddleNumberOrSymbols;
-    int countMiddleNumbersOrSymbols;
+    private int bonusMiddleNumberOrSymbols;
+    private int countMiddleNumbersOrSymbols;
 
     public MiddleNumbersOrSymbols(String[] candidateArray) {
-        countLengthMiddleNumbersOrSymbols(candidateArray);
-        calculateBonusMiddleNumbersOrSymbols();
+        this.countLengthMiddleNumbersOrSymbols(candidateArray);
+        this.calculateBonusMiddleNumbersOrSymbols();
     }
 
     public void countLengthMiddleNumbersOrSymbols(String[] candidateArray) {

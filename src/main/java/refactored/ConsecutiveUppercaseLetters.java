@@ -2,12 +2,12 @@ package refactored;
 
 public class ConsecutiveUppercaseLetters {
 
-    int bonusConsecutiveUppercaseLetters;
-    int countConsecutiveUppercaseLetters;
+    private int bonusConsecutiveUppercaseLetters;
+    private int countConsecutiveUppercaseLetters;
 
     public ConsecutiveUppercaseLetters(String[] candidateArray) {
-        countLengthConsecutiveUppercaseLetters(candidateArray);
-        calculateBonusConsecutiveUppercaseLetters();
+        this.countLengthConsecutiveUppercaseLetters(candidateArray);
+        this.calculateBonusConsecutiveUppercaseLetters();
     }
 
     public void countLengthConsecutiveUppercaseLetters(String[] candidateArray) {
