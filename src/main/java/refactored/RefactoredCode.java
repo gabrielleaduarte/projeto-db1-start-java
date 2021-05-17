@@ -56,7 +56,7 @@ public class RefactoredCode {
 
         score = new Score(numberOfCharacters.getBonusLength(), uppercaseLetters.getBonusUppercaseLetters(), lowercaseLetters.getBonusLowercaseLetters(),
                           numbers.getBonusNumbers(), symbols.getBonusSymbols(), middleNumbersOrSymbols.getBonusMiddleNumberOrSymbols(),
-                          requirements.getBonusRequirements(), lettersOnly.getBonusLetterOnly(), numbersOnly.getBonusNumbersOnly(),
+                          requirements.getBonusRequirements(), lettersOnly.getBonusLettersOnly(), numbersOnly.getBonusNumbersOnly(),
                           repeatCharacters.getBonusRepeatCharacters(),consecutiveUppercaseLetters.getBonusConsecutiveUppercaseLetters(),
                           consecutiveLowercaseLetters.getBonusConsecutiveLowercaseLetters(), consecutiveNumber.getBonusConsecutiveNumber(),
                           sequentialLetters.getBonusSequentialLetters(), sequentialNumbers.getBonusSequentialNumbers(), sequentialSymbols.getBonusSequentialSymbols());
@@ -78,7 +78,7 @@ public class RefactoredCode {
                 + "\n[C: " + requirements.getCountRequirements() + " | B: " + requirements.getBonusRequirements() + "] Requirements"
 
                 + "\nDeductions"
-                + "\n[C: " + lettersOnly.getCountLetterOnly() + " | B: " + lettersOnly.getBonusLetterOnly() + "] Letters Only"
+                + "\n[C: " + lettersOnly.getCountLettersOnly() + " | B: " + lettersOnly.getBonusLettersOnly() + "] Letters Only"
                 + "\n[C: " + numbersOnly.getCountNumbersOnly() + " | B: " + numbersOnly.getBonusNumbersOnly() + "] Numbers Only"
                 + "\n[C: " + repeatCharacters.getCountRepeatCharacters() + " | B: " + repeatCharacters.getBonusRepeatCharacters() + "] Repeat Characters (Case Insensitive)"
                 + "\n[C: " + consecutiveUppercaseLetters.getCountConsecutiveUppercaseLetters() + " | B: " + consecutiveUppercaseLetters.getBonusConsecutiveUppercaseLetters() + "] Consecutive Uppercase Letters"

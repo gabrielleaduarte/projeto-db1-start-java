@@ -21,11 +21,11 @@ public class LettersOnly {
         }
     }
 
-    public int getBonusLetterOnly() {
+    public int getBonusLettersOnly() {
         return bonusLettersOnly;
     }
 
-    public int getCountLetterOnly() {
+    public int getCountLettersOnly() {
         return countLettersOnly;
     }
 
