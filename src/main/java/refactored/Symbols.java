@@ -5,8 +5,8 @@ public class Symbols {
     private int bonusSymbols;
     private int countSymbols;
 
-    public Symbols(String[] candidateAray) {
-        this.countLengthSymbols(candidateAray);
+    public Symbols(String[] candidateArray) {
+        this.countLengthSymbols(candidateArray);
         this.calculateBonusSymbols();
     }
 
