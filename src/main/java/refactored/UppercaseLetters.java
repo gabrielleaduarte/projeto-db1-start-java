@@ -27,7 +27,7 @@ public class UppercaseLetters {
         }
     }
 
-    public int getBonusUCLetters() {
+    public int getBonusUppercaseLetters() {
         return bonusUCLetters;
     }
 

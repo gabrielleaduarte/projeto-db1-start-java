@@ -54,7 +54,7 @@ public class RefactoredCode {
         sequentialNumbers = new SequentialNumbers(candidate);
         sequentialSymbols = new SequentialSymbols(candidate);
 
-        score = new Score(numberOfCharacters.getBonusLength(), uppercaseLetters.getBonusUCLetters(), lowercaseLetters.getBonusLowercaseLetters(),
+        score = new Score(numberOfCharacters.getBonusLength(), uppercaseLetters.getBonusUppercaseLetters(), lowercaseLetters.getBonusLowercaseLetters(),
                           numbers.getBonusNumbers(), symbols.getBonusSymbols(), middleNumbersOrSymbols.getBonusMiddleNumberOrSymbols(),
                           requirements.getBonusRequirements(), lettersOnly.getBonusLetterOnly(), numbersOnly.getBonusNumbersOnly(),
                           repeatCharacters.getBonusRepeatCharacters(),consecutiveUppercaseLetters.getBonusConsecutiveUppercaseLetters(),
@@ -70,7 +70,7 @@ public class RefactoredCode {
 
                 + "\nAddictions"
                 + "\n[C: " + numberOfCharacters.getCountLength() + " | B: " + numberOfCharacters.getBonusLength() + "] Number of Characters"
-                + "\n[C: " + uppercaseLetters.getCountUppercaseLetters() + " | B: " + uppercaseLetters.getBonusUCLetters() + "] Uppercase Letters"
+                + "\n[C: " + uppercaseLetters.getCountUppercaseLetters() + " | B: " + uppercaseLetters.getBonusUppercaseLetters() + "] Uppercase Letters"
                 + "\n[C: " + lowercaseLetters.getCountLowercaseLetters() + " | B: " + lowercaseLetters.getBonusLowercaseLetters() + "] Lowercase Letters"
                 + "\n[C: " + numbers.getCountNumbers() + " | B: " + numbers.getBonusNumbers() + "] Numbers"
                 + "\n[C: " + symbols.getCountSymbols() + " | B: " + symbols.getBonusSymbols() + "] Symbols"
