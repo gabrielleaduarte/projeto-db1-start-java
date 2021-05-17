@@ -12,7 +12,7 @@ public class RepeatCharacters {
     }
 
     public void countLengthRepeatCharacters(String[] candidateArray) {
-        var bCharExists = false;
+        boolean bCharExists = false;
         for (int i = 0; i < candidateArray.length; i++) {
             for (int j = 0; j < candidateArray.length; j++) {
                 if (candidateArray[i].equals(candidateArray[j]) && i != j) {
